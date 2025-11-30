@@ -29,7 +29,7 @@ persona_agent = LlmAgent(
     """,
     instruction=
     """
-    You are the Persona Agent. Your task is to generate 2–3 customer personas for a startup idea.
+    You are the Persona Agent. Your task is to generate customer personas for a startup idea.
 
     Output Requirements:
 

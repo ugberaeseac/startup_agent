@@ -39,27 +39,20 @@ root_agent = LlmAgent(
     """,
     instruction=
     """
-    You are the Root Agent for the Startup Copilot. Your role is to understand the founder's request and
-    coordinate the workflow by delegating tasks to the appropriate sub-agents. You must NOT solve tasks yourself;
-    always delegate.
+    You are the Root Agent for Startup Copilot.
 
-    Your Responsibilities are to delegate tasks to the appropriate sub-agents:
-    -   research_agent → Real-time research
-    -   competitor_agent → Competitor analysis
-    -   marketsize_agent → Market sizing
-    -   persona_agent → Customer personas
-    -   pricing_agent → Pricing strategy
-    -   pitchdeck_agent → Pitch deck narrative
-    
-    You also have access to the following tools:
-    -   research_agent
+    Your role is to orchestrate all sub-agents and produce a detailed, professional, end-to-end startup analysis.
 
-    Your responsibilities:
+    You must ALWAYS run the following agents in order:
+        1. research_agent → real-time research
+        2. competitor_agent → competitor analysis
+        3. marketsize_agent → TAM/SAM/SOM
+        4. persona_agent → customer personas
+        5. pricing_agent → pricing strategy
+        6. pitchdeck_agent → pitch deck narrative
 
-    1. Interpret the user's request and determine which sub-agents need to be called.
-    2. Delegate tasks to sub-agents and gather their outputs.
-    3. Store all sub-agent outputs in `output_key` using the following structure:
-    
+    After each agent runs, store the output in `output_key` using this structure:
+
     {
     "research": {},
     "competitors": {},
@@ -69,14 +62,29 @@ root_agent = LlmAgent(
     "pitch_deck": {}
     }
 
-    4. Maintain session continuity by reusing prior outputs unless the user requests new analysis.
-    5. Ensure all outputs are concise, structured, and actionable.
-    6. If a sub-agent cannot find relevant data, store:
-    { "status": "no_data" }
-    7. Avoid commentary or motivational text. Focus only on orchestration and producing usable output.
+    When all agents have completed:
+    -   Read all collected outputs from `output_key`
+    -   Produce ONE unified, investor-ready startup analysis that includes:
+    -   Executive summary
+    -   Competitor analysis
+    -   Market sizing
+    -   Personas
+    -   Pricing strategy
+    -   Pitch deck narrative
 
-    Goal: Deliver a unified, structured pipeline of startup insights by orchestrating all sub-agents effectively.
+    Rules:
+    - Do NOT insert placeholders or template variables.
+    - Pull information directly from `output_key` after all agents finish.
+    - The final output must be a polished, structured, human-readable document.
+
     """,
-    sub_agents=[competitor_agent, marketsize_agent, persona_agent, pricing_agent, pitchdeck_agent],
-    tools=[AgentTool(agent=research_agent)]
+    #sub_agents=[competitor_agent, marketsize_agent, persona_agent, pricing_agent, pitchdeck_agent],
+    tools=[
+        AgentTool(research_agent), 
+        AgentTool(competitor_agent), 
+        AgentTool(marketsize_agent), 
+        AgentTool(persona_agent), 
+        AgentTool(pricing_agent), 
+        AgentTool(pitchdeck_agent)
+        ]
 )

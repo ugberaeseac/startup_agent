@@ -31,7 +31,7 @@ competitor_agent = LlmAgent(
     instruction=
     """
     You are the Competitor Agent. Your task is to analyze competitors for a startup idea using
-    Research Agent data or provided inputs.
+    Research Agent data: {research_data}.
 
     -   Output Requirements:
     -   Return structured JSON with fields:

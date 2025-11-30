@@ -25,9 +25,7 @@ pitchdeck_agent = LlmAgent(
     description=
     """
     Pitch Deck Agent for Startup Copilot. Converts research, market insights,competitor analysis, personas,
-    and pricing data into a clear, investor-ready pitch-deck narrative. Creates structured,
-    concise storytelling about the opportunity, problem, solution, and business model, using outputs
-    from other agents to form a consistent founder narrative.
+    and pricing data into a clear, investor-ready pitch-deck narrative. 
     """,
     instruction=
     """
@@ -36,7 +34,9 @@ pitchdeck_agent = LlmAgent(
     marketsize_agent, persona_agent, pricing_agent) into a structured startup pitch narrative.
 
     Requirements:
-    - Convert the provided structured data into a clear pitch deck outline.
+    -   Convert the provided structured data: competitior analysis {competitor_analysis}, the potential market size {marketsize_data},
+        user personas {user_personas}, pricing strategy {pricing_strategy} into a clear pitch deck outline.
+    
     - Keep the tone investor-ready: concise, credible, and insight-driven.
     - Do NOT fabricate data that was not provided. If information is missing, mark it as "not provided".
     - Organize your output into the following sections:
@@ -50,9 +50,6 @@ pitchdeck_agent = LlmAgent(
         8. Go-To-Market Strategy
         9. Why Now
         10. Conclusion / Summary Narrative
-
-    Your final output must be structured JSON so the Root Agent can insert it into the unified output.
-    Focus on clarity, storytelling, and investor relevance.
     """,
     output_key='pitch_deck'
 )
