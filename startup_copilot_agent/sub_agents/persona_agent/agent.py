@@ -23,6 +23,6 @@ persona_agent = LlmAgent(
         retry_options=retry_config
     ),
     description="""
-    """
-    instruction=""" """
+    """,
+    instruction=""" """,
 )

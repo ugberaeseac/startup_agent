@@ -27,7 +27,7 @@ research_agent = LlmAgent(
     Uses the google_search tool to fetch real-time data. Designed to produce outputs that can be directly 
     consumed by other sub-agents for competitor analysis, market sizing, persona creation, and pitch deck 
     generation.
-    """
+    """,
     instruction=
     """
     You are the Research Agent for the Startup Copilot. 
@@ -44,6 +44,6 @@ research_agent = LlmAgent(
 
     Goal: Ensure the output can be directly used by Competitor, Market Size, Persona, and
     Pitch Deck agents for further processing.
-    """
+    """,
     tools=[google_search]
 )
