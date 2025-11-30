@@ -22,11 +22,10 @@ research_agent = LlmAgent(
         model='gemini-2.5-flash',
         retry_options=retry_config
     ),
-    description="""Research Agent for Startup Copilot. Responsible for gathering structured, concise,
-    and relevant information about startup ideas, competitors, industries, market trends, and regulations.
-    Uses the google_search tool to fetch real-time data. Designed to produce outputs that can be directly 
-    consumed by other sub-agents for competitor analysis, market sizing, persona creation, and pitch deck 
-    generation.
+    description="""
+    Research Agent for Startup Copilot. Collects structured, real-time information about startup ideas,
+    competitors, industries, market trends, funding, and regulations. Outputs are designed to be directly 
+    consumable by other sub-agents for end-to-end startup planning.
     """,
     instruction=
     """
@@ -45,5 +44,6 @@ research_agent = LlmAgent(
     Goal: Ensure the output can be directly used by Competitor, Market Size, Persona, and
     Pitch Deck agents for further processing.
     """,
+    output_key='research_data',
     tools=[google_search]
 )

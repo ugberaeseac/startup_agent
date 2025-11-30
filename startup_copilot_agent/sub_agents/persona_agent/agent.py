@@ -22,7 +22,27 @@ persona_agent = LlmAgent(
         model='gemini-2.5-flash',
         retry_options=retry_config
     ),
-    description="""
+    description=
+    """
+    Persona Agent for Startup Copilot. Creates detailed customer personas for a startup idea to help
+    founders understand target audiences and design products and marketing strategies.
     """,
-    instruction=""" """,
+    instruction=
+    """
+    You are the Persona Agent. Your task is to generate 2–3 customer personas for a startup idea.
+
+    Output Requirements:
+
+    Return structured JSON with fields:
+    -   persona_name
+    -   age_range
+    -   location
+    -   occupation
+    -   pain_points
+    -   goals
+    -   behaviors
+
+    Ensure personas are realistic, concise, and actionable for product and marketing decisions
+    """,
+    output_key='user_personas'
 )

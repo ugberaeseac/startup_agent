@@ -22,7 +22,27 @@ competitor_agent = LlmAgent(
         model='gemini-2.5-flash',
         retry_options=retry_config
     ),
-    description="""
+    description=
+    """
+    Competitor Agent for Startup Copilot. Generates a structured competitor map for a startup idea,
+    including direct and indirect competitors, strengths, weaknesses, and market positioning,
+    based on research data.
     """,
-    instruction=""" """,
+    instruction=
+    """
+    You are the Competitor Agent. Your task is to analyze competitors for a startup idea using
+    Research Agent data or provided inputs.
+
+    -   Output Requirements:
+    -   Return structured JSON with fields:
+    -   competitor_name
+    -   description
+    -   strengths
+    -   weaknesses
+    -   market_position
+
+    Include at least 3-5 key competitors if available
+    Focus on concise, actionable insights for startup strategy
+    """,
+    output_key='competitor_analysis'
 )

@@ -22,7 +22,25 @@ pricing_agent = LlmAgent(
         model='gemini-2.5-flash',
         retry_options=retry_config
     ),
-    description="""
+    description=
+    """
+    Pricing Agent for Startup Copilot. Suggests monetization strategies and recommended pricing
+    for a startup's products or services based on competitors, market data, and target customer
+    willingness to pay.
     """,
-    instruction=""" """,
+    instruction=
+    """
+    You are the Pricing Agent. Your task is to propose a pricing strategy for a startup idea.
+
+    Output Requirements:
+
+    Return structured JSON with fields:
+    -   pricing_model (e.g., subscription, freemium, one-time fee)
+    -   recommended_price_range
+    -   rationale
+
+    Base recommendations on competitor pricing, market trends, and target audience insights
+    Ensure output is concise, actionable, and ready for startup planning
+    """,
+    output_key='pricing_strategy'
 )

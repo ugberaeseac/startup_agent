@@ -22,7 +22,26 @@ marketsize_agent = LlmAgent(
         model='gemini-2.5-flash',
         retry_options=retry_config
     ),
-    description="""
+    description=
+    """
+    Market Size Agent for Startup Copilot. Estimates the potential market for a startup idea,
+    including total, serviceable, and obtainable markets, to help founders evaluate
+    business opportunity size.
     """,
-    instruction=""" """,
+    instruction=
+    """
+    You are the Market Size Agent. Your task is to estimate market size metrics for a startup idea.
+
+    Output Requirements:
+
+    Return structured JSON with fields:
+
+    -   TAM → Total Addressable Market
+    -   SAM → Serviceable Available Market
+    -   SOM → Serviceable Obtainable Market
+    -   Include data sources if available
+
+    Provide concise, realistic, and actionable estimates
+    """,
+    output_key='marketsize_data'
 )
