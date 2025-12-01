@@ -12,6 +12,7 @@ click==8.3.1
 cloudpickle==3.1.2
 cryptography==46.0.3
 docstring_parser==0.17.0
+dotenv==0.9.9
 fastapi==0.118.3
 google-adk==1.19.0
 google-api-core==2.28.1

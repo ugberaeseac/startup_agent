@@ -23,8 +23,8 @@ retry_config  = types.HttpRetryOptions(
 )
 
 
-root_agent = LlmAgent(
-    name='startup_copilot_agent',
+startup_copilot_agent = LlmAgent(
+    name='startup_agent',
     model=Gemini(
         model='gemini-2.5-flash',
         retry_options=retry_config
