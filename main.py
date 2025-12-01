@@ -2,7 +2,7 @@ import asyncio
 
 from dotenv import load_dotenv
 from google.adk.runners import Runner
-from google.adk.sessions import InMemorySessionService
+from google.adk.sessions import DatabaseSessionService
 from startup_copilot_agent.agent import startup_copilot_agent
 from utils.utils import call_agent_async
 
@@ -11,8 +11,11 @@ from utils.utils import call_agent_async
 
 load_dotenv()
 
+db_url="sqlite+aiosqlite:///./memory.db"
+session_service = DatabaseSessionService(db_url=db_url)
 
-session_service = InMemorySessionService()
+# db_url = "sqlite:///./my_agent_data.db"
+# session_service = DatabaseSessionService(db_url=db_url)
 
 #Define initial state
 initial_state = {
@@ -29,7 +32,7 @@ initial_state = {
 }
 
 async def main_async():
-    APP_NAME='startup_copilot_agent'
+    APP_NAME='agents'
     USER_ID='ugberaeseac'
 
     #check for existing sessions
