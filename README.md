@@ -31,7 +31,7 @@ A modular, extensible AI agent system built using **Google ADK**, featuring pers
 
 ## Memory Architecture
 
-![Memory Flow Diagram](https://i.postimg.cc/sfZHns2W/pic-1.png)
+[Memory Flow Diagram](https://postimg.cc/Bt4CbWHZ)
 
 ------------------------------------------------------------------------
 
