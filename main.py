@@ -1,4 +1,5 @@
 import asyncio
+import readline
 
 from dotenv import load_dotenv
 from google.adk.runners import Runner
@@ -13,9 +14,6 @@ load_dotenv()
 
 db_url="sqlite+aiosqlite:///./memory.db"
 session_service = DatabaseSessionService(db_url=db_url)
-
-# db_url = "sqlite:///./my_agent_data.db"
-# session_service = DatabaseSessionService(db_url=db_url)
 
 #Define initial state
 initial_state = {

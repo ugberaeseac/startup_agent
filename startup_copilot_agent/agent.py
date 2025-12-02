@@ -24,7 +24,7 @@ retry_config  = types.HttpRetryOptions(
 
 
 startup_copilot_agent = LlmAgent(
-    name='startup_agent',
+    name='startup_copilot_agent',
     model=Gemini(
         model='gemini-2.5-flash',
         retry_options=retry_config
@@ -50,6 +50,8 @@ startup_copilot_agent = LlmAgent(
         4. persona_agent → customer personas
         5. pricing_agent → pricing strategy
         6. pitchdeck_agent → pitch deck narrative
+
+    
 
     After each agent runs, store the output in `output_key` using this structure:
 
