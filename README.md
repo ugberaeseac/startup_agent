@@ -24,7 +24,7 @@ A modular, extensible AI agent system built using **Google ADK**, featuring pers
 -   **Python 3.12**
 -   **Google ADK** (Agent Development Kit)
 -   **Gemini 2.5 Flash**
--   **SQLite** — persistent session + state storage
+-   **SQLite** - persistent session + state storage
 -   **FastAPI (ADK built‑in webserver)** for agent testing
 
 ------------------------------------------------------------------------
