@@ -31,8 +31,7 @@ A modular, extensible AI agent system built using **Google ADK**, featuring pers
 
 ## Memory Architecture
 
-![START_AGENT_ADK_UI](https://i.postimg.cc/sfZHns2W/pic-1.png)
-
+[![ADK UI](https://i.postimg.cc/sfZHns2W/pic-1.png)](https://postimg.cc/Bt4CbWHZ)
 ------------------------------------------------------------------------
 
 ## Getting Started
